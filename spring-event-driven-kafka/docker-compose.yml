@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  db_events:
+    image: postgres:12.7
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: p4ss*
+      POSTGRES_DB: events
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_events_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    restart: on-failure
+
+volumes:
+  db_events_data:
+
+networks:
+  backend: {}
