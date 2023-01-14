@@ -1,0 +1,28 @@
+server:
+  servlet:
+    context-path: /api
+
+spring:
+  profiles:
+    active:
+      - dev
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+queue:
+  name: rabbit-example
+  exchange: exchange-example
+  routingkey: routing-key-example
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  rabbitmq:
+    host: queue_manager
+    port: 5672
+    username: guest
+    password: guest

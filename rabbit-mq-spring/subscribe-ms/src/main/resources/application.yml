@@ -1,0 +1,45 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /api
+
+spring:
+  profiles:
+    active:
+      - dev
+  datasource:
+    url: jdbc:postgresql://localhost:5455/rabbit_example
+    username: rabbit_user
+    password: p0stgr3s*
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+queue:
+  name: rabbit-example
+  exchange: exchange-example
+  routingkey: routing-key-example
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: jdbc:postgresql://db_queue/rabbit_example
+    username: rabbit_user
+    password: p0stgr3s*
+  jpa:
+    hibernate:
+      ddl-auto: update
+  rabbitmq:
+    host: queue_manager
+    port: 5672
+    username: guest
+    password: guest
