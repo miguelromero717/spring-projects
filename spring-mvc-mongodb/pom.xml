@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ingeniumsoft</groupId>
+  <artifactId>spring-mvc-mongo</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>spring-mvc-mongo Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+  	<jdk.version>1.8</jdk.version>
+  	<servlet.api.version>3.1.0</servlet.api.version>
+  	<servlet.jsp.api.version>2.3.1</servlet.jsp.api.version>
+  	<jstl.version>1.2</jstl.version>
+  	<junit.version>4.12</junit.version>
+  	<spring.version>4.2.5.RELEASE</spring.version>
+  	<spring.data.mongo.version>1.8.4.RELEASE</spring.data.mongo.version>
+  	<mvn.compiler.plugin.version>3.5.1</mvn.compiler.plugin.version>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>${servlet.api.version}</version>
+	</dependency>
+	
+	<dependency>
+         <groupId>javax.servlet.jsp</groupId>
+         <artifactId>javax.servlet.jsp-api</artifactId>
+         <version>${servlet.jsp.api.version}</version>
+     </dependency>
+     <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>jstl</artifactId>
+         <version>${jstl.version}</version>
+     </dependency>
+	
+	<dependency>  
+   		<groupId>org.springframework</groupId>  
+   		<artifactId>spring-core</artifactId>  
+   		<version>${spring.version}</version>  
+  	</dependency>
+    
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	
+	<dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-mongodb</artifactId>
+        <version>${spring.data.mongo.version}</version>
+    </dependency>
+    
+  </dependencies>
+  
+  <build>
+    <finalName>spring-mvc-mongo</finalName>
+    <plugins>
+    	<!-- Plugin para setear un JDK especifico al proyecto -->
+    	<plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+        	<artifactId>maven-compiler-plugin</artifactId>
+        	<version>${mvn.compiler.plugin.version}</version>
+        	<configuration>
+        		<source>${jdk.version}</source>
+          		<target>${jdk.version}</target>
+        	</configuration>
+    	</plugin>
+    </plugins>
+  </build>
+</project>
